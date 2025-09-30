@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.brand {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 12px;
 }
 
-.App-link {
-  color: #61dafb;
+.brand img { width: 40px; height: 40px; }
+.brand video { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: saturate(140%) blur(8px);
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border-bottom: 1px solid var(--border);
+  padding: 0px 55px 0px 55px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.topbar-inner {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0px;
 }
+
+.title { font-size: 20px; font-weight: 700; }
+
+.nav {
+  display: none;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Pill Nav container */
+.pill-nav {
+  padding: 6px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+ }
+
+.pill-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  transition: color .15s ease, transform .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+
+.pill-nav a:hover { color: var(--text); background: color-mix(in srgb, var(--bg) 70%, transparent); transform: translateY(-1px); box-shadow: 0 6px 14px var(--shadow); }
+.pill-nav a:active { transform: translateY(0); }
+
+@media (min-width: 720px) {
+  .nav { display: flex; }
+}
+
+/* Themed Select (Theme dropdown) */
+/* Custom dropdown inspired by ReactBits Scroll Stack */
+.dropdown { position: relative; }
+.dropdown-button {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 75%, transparent), color-mix(in srgb, var(--bg) 88%, transparent));
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 800;
+  font-size: 14px;
+  box-shadow: inset 0 8px 20px color-mix(in srgb, var(--bg) 80%, transparent);
+}
+.dropdown-button:hover { transform: translateY(-1px); box-shadow: 0 8px 18px var(--shadow), inset 0 8px 20px color-mix(in srgb, var(--bg) 80%, transparent); }
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 240px;
+  width: 260px;
+  max-height: 320px;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  border-radius: 20px;
+  padding: 0;
+  display: block;
+  gap: 0;
+  box-shadow:
+    0 12px 20px -6px var(--shadow),
+    0 24px 40px -12px var(--shadow);
+  z-index: 20;
+  contain: paint;
+}
+/* Ensure ScrollStack renders with visible height inside dropdown */
+.dropdown-menu .scroll-stack-scroller {
+  height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.dropdown-menu .scroll-stack-inner {
+  padding: 8px;
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  border-radius: 18px;
+  padding: 10px 10px 14px 10px;
+  text-align: left;
+  font-weight: 900;
+}
+.dropdown-item:hover { transform: translateY(-1px); }
+.swatch {
+  width: 18px; height: 18px; border-radius: 6px; border: 1px solid var(--border);
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.footer { color: var(--muted); text-align: center; padding: 24px; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+.file-drop {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 2px dashed var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  color: var(--muted);
+}
+
+.file-name { color: var(--text); font-weight: 600; }
+
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Hero */
+.hero {
+  padding: 56px 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+.headline {
+  font-size: clamp(44px, 8vw, 112px);
+  line-height: 0.9;
+  letter-spacing: -2px;
+  font-weight: 900;
+  margin: 0 0 18px 0;
+}
+.headline .accent {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lede { color: var(--muted); font-size: clamp(16px, 2.2vw, 30px); max-width: 48ch; }
+
+.cta { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+.btn-primary { background: var(--primary); color: #0a0a0a; font-size: 16px; }
+.btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.mosaic-item {
+  border-radius: 22px;
+  overflow: hidden;
+  background: #0003;
+  border: 1px solid var(--border);
+  aspect-ratio: 4/3;
+}
+.mosaic video, .mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; }
