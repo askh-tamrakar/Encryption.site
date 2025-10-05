@@ -1,6 +1,7 @@
+---
 deployment:
-  tasks:
-    - export DEPLOYPATH=/home2/withadae/Akshansh
+    tasks:
+    - export DEPLOYPATH=/home2/withadae/Akshansh/
     - /bin/rm -rf $DEPLOYPATH/*
     - /bin/npm install
     - /bin/npm run build
