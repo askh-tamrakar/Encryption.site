@@ -1,7 +1,6 @@
----
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/<USERNAME>/public_html
+    - export DEPLOYPATH=/home2/withadae/Akshansh
     - /bin/rm -rf $DEPLOYPATH/*
     - /bin/npm install
     - /bin/npm run build
