@@ -5,18 +5,20 @@ import { encryptText, bytesToBase64 } from './crypto';
 import themePresets from './themes/presets';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 import PillNav from './components/PillNav';
+import AnimatedList from './components/AnimatedList';
 
 function App() {
-  const [theme, setTheme] = React.useState(() => localStorage.getItem('theme') || 'theme-violet');
-  // Dropdown state now managed within PillNav
-  const [navColors, setNavColors] = React.useState({ base:'#000000', pill:'#ffffff', pillText:'#000000', hoverText:'#ffffff' });
-  const [fileName, setFileName] = React.useState('');
-  const [fileText, setFileText] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [busy, setBusy] = React.useState(false);
-  const [resultB64, setResultB64] = React.useState('');
 
-  React.useEffect(() => {
+    const [theme, setTheme] = React.useState(() => localStorage.getItem('theme') || 'theme-violet');
+    // Dropdown state now managed within PillNav
+    const [navColors, setNavColors] = React.useState({ base:'#000000', pill:'#ffffff', pillText:'#000000', hoverText:'#ffffff' });
+    const [fileName, setFileName] = React.useState('');
+    const [fileText, setFileText] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [busy, setBusy] = React.useState(false);
+    const [resultB64, setResultB64] = React.useState('');
+
+    React.useEffect(() => {
     const root = document.documentElement;
     const existing = Array.from(root.classList).filter(c => c.startsWith('theme-'));
     if (existing.length) root.classList.remove(...existing);
@@ -28,37 +30,37 @@ function App() {
     const text = cs.getPropertyValue('--text').trim() || '#ffffff';
     const primary = cs.getPropertyValue('--primary').trim() || '#61dafb';
     setNavColors({ base:accent, pill:text, pillText:accent, hoverText:text });
-  }, [theme]);
+    }, [theme]);
 
-  function onFileChange(ev) {
-    const file = ev.target.files?.[0];
-    if (!file) return;
-    setFileName(file.name);
-    const isTxt = /\.txt$/i.test(file.name);
-    if (!isTxt) {
-      alert('Please upload a .txt file');
-      return;
+    function onFileChange(ev) {
+        const file = ev.target.files?.[0];
+        if (!file) return;
+        setFileName(file.name);
+        const isTxt = /\.txt$/i.test(file.name);
+        if (!isTxt) {
+            alert('Please upload a .txt file');
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = () => setFileText(String(reader.result || ''));
+        reader.readAsText(file);
     }
-    const reader = new FileReader();
-    reader.onload = () => setFileText(String(reader.result || ''));
-    reader.readAsText(file);
-  }
 
-  async function onEncrypt() {
-    if (!fileText) { alert('Please select a .txt file'); return; }
-    if (!password || password.length < 6) { alert('Use a password with at least 6 characters'); return; }
-    setBusy(true);
-    try {
-      const bytes = await encryptText(fileText, password);
-      const b64 = bytesToBase64(bytes);
-      setResultB64(b64);
-    } catch (e) {
-      console.error(e);
-      alert('Encryption failed');
-    } finally {
-      setBusy(false);
-    }
-  }
+      async function onEncrypt() {
+        if (!fileText) { alert('Please select a .txt file'); return; }
+        if (!password || password.length < 6) { alert('Use a password with at least 6 characters'); return; }
+        setBusy(true);
+        try {
+          const bytes = await encryptText(fileText, password);
+          const b64 = bytesToBase64(bytes);
+          setResultB64(b64);
+        } catch (e) {
+          console.error(e);
+          alert('Encryption failed');
+        } finally {
+          setBusy(false);
+        }
+      }
 
   function downloadEncrypted() {
     if (!resultB64) return;
@@ -72,7 +74,9 @@ function App() {
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
-  }
+    }
+
+    const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'];
 
   return (
     <div className="app-root">

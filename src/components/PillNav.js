@@ -134,7 +134,7 @@ const PillNav = ({
     if (!tl) return;
     activeTweenRefs.current[i]?.kill();
     activeTweenRefs.current[i] = tl.tweenTo(tl.duration(), {
-      duration: 0.45,
+      duration: 0.5,
       ease,
       overwrite: 'auto'
     });
@@ -145,7 +145,7 @@ const PillNav = ({
     if (!tl) return;
     activeTweenRefs.current[i]?.kill();
     activeTweenRefs.current[i] = tl.tweenTo(0, {
-      duration: 0.3,
+      duration: 0.35,
       ease,
       overwrite: 'auto'
     });
@@ -176,7 +176,7 @@ const PillNav = ({
     gsap.set(img, { rotate: 0 });
     logoTweenRef.current = gsap.to(img, {
       rotate: 360,
-      duration: 0.3,
+      duration: 0.35,
       ease,
       overwrite: 'auto'
     });
@@ -210,7 +210,7 @@ const PillNav = ({
             opacity: 1,
             y: 0,
             scaleY: 1,
-            duration: 0.45,
+            duration: 0.5,
             ease,
             transformOrigin: 'top center'
           }
@@ -220,7 +220,7 @@ const PillNav = ({
           opacity: 0,
           y: 10,
           scaleY: 1,
-          duration: 0.3,
+          duration: 0.35,
           ease,
           transformOrigin: 'top center',
           onComplete: () => {
