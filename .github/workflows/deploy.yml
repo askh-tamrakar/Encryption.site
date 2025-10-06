@@ -33,4 +33,4 @@ jobs:
           SOURCE: "build/"
           TARGET: ${{ secrets.CPANEL_PATH }}
           ARGS: "-avz --delete"
-          SSH_ARGS: "-o IdentitiesOnly=yes"
+          SSH_ARGS: "-o IdentitiesOnly=yes -o StrictHostKeyChecking=no -p 22"
