@@ -103,7 +103,7 @@ function App() {
                               className="dropdown-item"
                               onClick={() => { setTheme(p.value); close?.(); }}
                               style={{
-                                background: `linear-gradient(180deg, ${p.palette?.[0] || 'var(--primary)'} 0%, ${(p.palette?.[1] || 'var(--accent)')} 50%, ${(p.palette?.[2] || 'var(--surface)')} 75%, ${(p.palette?.[3] || 'var(--bg)')} 100%)`,
+                                background: `${p.color}`,
                                 color: '#fff'
                               }}
                             > 

@@ -37,6 +37,7 @@
   /*-webkit-transform: translateZ(0);
   transform: translateZ(0);
   position: relative;
+
 }
 
 .scroll-stack-end {
@@ -45,21 +46,20 @@
 }*/
 
 .dropdown-menu .scroll-stack-scroller {
-    position: relative;
-    width: 100%;
-    max-height: 320px; /* constrain height to dropdown */
-    overflow-y: auto;
-    overflow-x: hidden;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: scroll-position;
+  position: relative;
+  width: 200px;
+  max-height: 70px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  transform: translateZ(0);
+  will-change: scroll-position;
+  top: 6px;
+    
 }
 
 .dropdown-menu .scroll-stack-inner {
-    padding: 1rem; /* reduce huge padding for dropdown */
+    padding: 1px; /* reduce huge padding for dropdown */
     min-height: auto; /* let it shrink to fit content */
 }
 
@@ -68,20 +68,19 @@
 }
 
 .dropdown-menu .scroll-stack-card {
-    transform-origin: top center;
-    will-change: transform, filter;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    height: auto; /* shrink cards to content */
-    width: 100%;
-    margin: 10px 0;
-    padding: 1rem 1.5rem;
-    border-radius: 20px;
-    box-sizing: border-box;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    position: relative;
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  height: 50px;
+  width: auto;
+  margin: 2px 0px;
+  padding: 0px 0px;
+  border-radius: 0px;
+  box-sizing: border-box;
+  transform: translateZ(0);
+  position: relative;
+  background: transparent;
 }
 
 .dropdown-menu .scroll-stack-end {

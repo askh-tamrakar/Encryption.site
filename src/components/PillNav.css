@@ -86,7 +86,6 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: 0 var(--pill-pad-x);
   background: var(--pill-bg, #fff);
   color: var(--pill-text);
   text-decoration: none;
@@ -101,7 +100,6 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  border: none;
 }
 
 .pill .hover-circle {
