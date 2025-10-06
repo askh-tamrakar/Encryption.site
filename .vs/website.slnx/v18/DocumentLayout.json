@@ -3,28 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\themes\\presets.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\themes\\presets.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\.cpanel.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.cpanel.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\.github\\workflows\\deploy.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.github\\workflows\\deploy.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\PillNav.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\PillNav.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\ScrollStack.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\ScrollStack.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\ScrollStack.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\ScrollStack.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\App.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\AnimatedList.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\AnimatedList.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\AnimatedList.js||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\AnimatedList.js||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\themes\\presets.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\themes\\presets.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,17 +50,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 334,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "App.js",
               "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\App.js",
               "RelativeDocumentMoniker": "src\\App.js",
               "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\App.js",
               "RelativeToolTip": "src\\App.js",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAAAGMAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAALoAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-10-04T07:53:01.744Z",
               "IsPinned": true,
@@ -52,13 +68,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "presets.js",
               "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\themes\\presets.js",
               "RelativeDocumentMoniker": "src\\themes\\presets.js",
               "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\themes\\presets.js",
               "RelativeToolTip": "src\\themes\\presets.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-10-04T08:51:14.954Z",
               "IsPinned": true,
@@ -66,15 +82,92 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.css",
-              "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\App.css",
-              "RelativeDocumentMoniker": "src\\App.css",
-              "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\App.css",
-              "RelativeToolTip": "src\\App.css",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAAAP4AAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "deploy.yml",
+              "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\.github\\workflows\\deploy.yml",
+              "RelativeDocumentMoniker": ".github\\workflows\\deploy.yml",
+              "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\.github\\workflows\\deploy.yml",
+              "RelativeToolTip": ".github\\workflows\\deploy.yml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAB4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-10-06T07:25:27.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PillNav.js",
+              "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\PillNav.js",
+              "RelativeDocumentMoniker": "src\\components\\PillNav.js",
+              "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\PillNav.js",
+              "RelativeToolTip": "src\\components\\PillNav.js",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAAAPoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-06T07:22:10.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ScrollStack.css",
+              "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\ScrollStack.css",
+              "RelativeDocumentMoniker": "src\\components\\ScrollStack.css",
+              "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\ScrollStack.css",
+              "RelativeToolTip": "src\\components\\ScrollStack.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-04T09:00:45.131Z",
+              "WhenOpened": "2025-10-06T07:21:55.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ScrollStack.js",
+              "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\ScrollStack.js",
+              "RelativeDocumentMoniker": "src\\components\\ScrollStack.js",
+              "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\ScrollStack.js",
+              "RelativeToolTip": "src\\components\\ScrollStack.js",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAAAPcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-06T07:06:16.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".cpanel.yml",
+              "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\.cpanel.yml",
+              "RelativeDocumentMoniker": ".cpanel.yml",
+              "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\.cpanel.yml",
+              "RelativeToolTip": ".cpanel.yml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-10-06T05:33:40.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-05T17:04:07.826Z",
               "EditorCaption": ""
             },
             {
@@ -94,40 +187,31 @@
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AnimatedList.css",
-              "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\AnimatedList.css",
-              "RelativeDocumentMoniker": "src\\components\\AnimatedList.css",
-              "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\AnimatedList.css",
-              "RelativeToolTip": "src\\components\\AnimatedList.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "App.css",
+              "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\App.css",
+              "RelativeDocumentMoniker": "src\\App.css",
+              "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\App.css",
+              "RelativeToolTip": "src\\App.css",
+              "ViewState": "AgIAAAgBAAAAAAAAAAAAADIBAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-04T07:59:34.112Z",
+              "WhenOpened": "2025-10-04T09:00:45.131Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AnimatedList.js",
-              "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\AnimatedList.js",
-              "RelativeDocumentMoniker": "src\\components\\AnimatedList.js",
-              "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\components\\AnimatedList.js",
-              "RelativeToolTip": "src\\components\\AnimatedList.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHkAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-10-04T07:58:56.632Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "index.css",
               "DocumentMoniker": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\index.css",
               "RelativeDocumentMoniker": "src\\index.css",
               "ToolTip": "C:\\Users\\akmor\\OneDrive\\Projects\\website\\src\\index.css",
               "RelativeToolTip": "src\\index.css",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAAJMAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-10-04T07:53:24.628Z",
               "EditorCaption": ""

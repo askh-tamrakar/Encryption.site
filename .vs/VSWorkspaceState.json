@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\components",
-    "\\src\\themes"
+    "\\.github\\workflows",
+    "\\src\\themes",
+    "\\themes"
   ],
-  "SelectedNode": "\\src\\components\\ScrollStack.css",
+  "SelectedNode": "\\package-lock.json",
   "PreviewInSolutionExplorer": false
 }

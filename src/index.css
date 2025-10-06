@@ -177,8 +177,70 @@
     --shadow: rgba(0,0,0,0.55); 
 }
 
+/* Croimson Blaze */
+.theme-crimson {
+  --bg: #00224D;
+  --surface: #5D0E41;
+  --text: #FDECEC;
+  --muted: #E6B7BE;
+  --primary: #FF204E;
+  --primary-contrast: #0F0F1F;
+  --accent: #A0153E;
+  --border: #3B0B2E;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
 
+/* Inferno Burst */
+.theme-inferno {
+  --bg: #52006A;
+  --surface: #7A0B57;
+  --text: #FFF2E5;
+  --muted: #FFCDA6;
+  --primary: #FFA900;
+  --primary-contrast: #1A0B0F;
+  --accent: #FF7600;
+  --border: #8A1A3C;
+  --shadow: rgba(0, 0, 0, 0.45);
+}
 
+/* Rosewood Velvet */
+.theme-rosewood {
+  --bg: #3A0519;
+  --surface: #670D2F;
+  --text: #FFF3F7;
+  --muted: #E7B3C3;
+  --primary: #A53860;
+  --primary-contrast: #15040A;
+  --accent: #EF88AD;
+  --border: #53132E;
+  --shadow: rgba(0, 0, 0, 0.45);
+}
+
+/* Ember Noir */
+.theme-ember {
+  --bg: #1B1833;
+  --surface: #441752;
+  --text: #FFF9F0;
+  --muted: #E6C9AE;
+  --primary: #F29F58;
+  --primary-contrast: #1A0E12;
+  --accent: #AB4459;
+  --border: #2C143D;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* Amethyst Dream */
+.theme-amethyst {
+  --bg: #3E1E68;
+  --surface: #5D2F77;
+  --text: #FFF5F9;
+  --muted: #F9CEDC;
+  --primary: #E45A92;
+  --primary-contrast: #220B2D;
+  --accent: #FFACAC;
+  --border: #4A276F;
+  --shadow: rgba(10, 0, 30, 0.5);
+}
 
 
 
