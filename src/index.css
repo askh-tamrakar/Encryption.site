@@ -153,6 +153,35 @@
   --shadow: rgba(0,0,0,0.55);
 }
 
+.theme-yellow {
+    --bg: #FFF7B0;
+    --surface: #FFE680;
+    --text: #2C2C2C;
+    --muted: #A18F3B;
+    --primary: #F2B01E;
+    --primary-contrast: #ffffff;
+    --accent: #E3A500;
+    --border: #C69C00;
+    --shadow: rgba(0,0,0,0.25);
+}
+
+.theme-yellow-dark {
+    --bg: #2C2B28; 
+    --surface: #3B392F; 
+    --text: #FFF7B0; 
+    --muted: #D9C974; 
+    --primary: #F2B01E; 
+    --primary-contrast: #2C2B28; 
+    --accent: #E3A500; 
+    --border: #C69C00; 
+    --shadow: rgba(0,0,0,0.55); 
+}
+
+
+
+
+
+
 html, body, #root {
   height: 100%;
 }
