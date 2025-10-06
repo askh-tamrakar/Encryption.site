@@ -5,7 +5,6 @@ import { encryptText, bytesToBase64 } from './crypto';
 import themePresets from './themes/presets';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 import PillNav from './components/PillNav';
-import AnimatedList from './components/AnimatedList';
 
 function App() {
 
@@ -25,10 +24,8 @@ function App() {
     root.classList.add(theme);
     localStorage.setItem('theme', theme);
     const cs = getComputedStyle(root);
-    const bg = cs.getPropertyValue('--bg').trim() || '#000000';
     const accent = cs.getPropertyValue('--accent').trim() || '#121212';
     const text = cs.getPropertyValue('--text').trim() || '#ffffff';
-    const primary = cs.getPropertyValue('--primary').trim() || '#61dafb';
     setNavColors({ base:accent, pill:text, pillText:accent, hoverText:text });
     }, [theme]);
 
@@ -75,8 +72,6 @@ function App() {
     a.remove();
     URL.revokeObjectURL(url);
     }
-
-    const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'];
 
   return (
     <div className="app-root">
