@@ -1,5 +1,0 @@
----
-deployment:
-    tasks:
-        - export DEPLOYPATH=/home2/withadae/Akshansh/
-        - /bin/cp -R build/* $DEPLOYPATH/
