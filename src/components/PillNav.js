@@ -284,21 +284,38 @@ const PillNav = ({
           <ul className="pill-list" role="menubar">
             {items.map((item, i) => (
               <li key={item.href || item.key || `item-${i}`} role="none" style={{ position: 'relative' }}>
-                {item.type === 'dropdown' ? (
+                {item.type === 'pill' ? (
                   <div className="dropdown" onMouseLeave={closeDropdown}>
-                    <button
-                      className={`pill dropdown-button`}
-                      type="button"
+                    <a
+                      className={
+                        `pill${activeHref === item.href ? ' is-active' : ''}`
+                      }
                       aria-haspopup="menu"
                       aria-expanded={openDropdownIndex === i}
                       onClick={e => { e.stopPropagation(); toggleDropdown(i); }}
                       onMouseDown={e => e.preventDefault()}
+                      style={{
+                        color: 'var(--pill-text)',
+                        position: 'relative'
+                      }}
+                      onMouseEnter={() => handleEnter(i)}
+                      onMouseLeave={() => handleLeave(i)}
+                      ref={el => {
+                        circleRefs.current[i] = el?.querySelector('.hover-circle') || null;
+                      }}
                     >
+                      <span
+                        className="hover-circle"
+                        aria-hidden="true"
+                        ref={el => {
+                          circleRefs.current[i] = el;
+                        }}
+                      />
                       <span className="label-stack">
                         <span className="pill-label">{item.label}</span>
                         <span className="pill-label-hover" aria-hidden="true">{item.label}</span>
                       </span>
-                    </button>
+                    </a>
                     {openDropdownIndex === i && (
                       <div className="dropdown-menu">
                         {typeof item.menu === 'function' ? item.menu({ close: closeDropdown }) : item.menu}

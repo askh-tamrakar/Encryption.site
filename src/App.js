@@ -92,7 +92,7 @@ function App() {
                   { label: 'How it Works', href: '#how' },
                   { label: 'Login', href: '#login' },
                   {
-                    type: 'dropdown',
+                    type: 'pill',
                     label: 'Theme',
                     key: 'theme-dropdown',
                     menu: ({ close }) => (

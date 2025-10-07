@@ -117,78 +117,20 @@
   text-align: left;
   font-weight: 900;
 }
-  
 .dropdown-item:hover { transform: translateY(-1px); }
 
+.swatch {
+  width: 18px; height: 18px; border-radius: 6px; border: 1px solid var(--border);
+}*/
 
 /* Dropdown wrapper */
 .dropdown {
   position: relative;
 }
 
-.dropdown-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  background: var(--pill-bg, #fff);
-  color: var(--pill-text);
-  text-decoration: none;
-  border-radius: 9999px;
-  box-sizing: border-box;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.dropdown-button .hover-circle {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  border-radius: 50%;
-  background: var(--base, #000);
-  z-index: 1;
-  display: block;
-  pointer-events: none;
-  will-change: transform;
-}
-
-.dropdown-button .pill-label-hover {
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--hover-text);
-  z-index: 3;
-  display: inline-block;
-  will-change: transform, opacity;
-}
-
-.dropdown-button .label-stack {
-  position: relative;
-  display: inline-block;
-  line-height: 1;
-  z-index: 2;
-}
-
-.dropdown-button .pill-label {
-  position: relative;
-  z-index: 2;
-  display: inline-block;
-  line-height: 1;
-  will-change: transform;
-  color: var(--pill-text);
-}
-
 .dropdown-menu {
-  position: absolute;
-  right: -32px;
-  overflow: hidden;
+ position: absolute;
+ right: -38px;
 }
 
 .dropdown-menu .scroll-stack-end {
