@@ -9,7 +9,7 @@ export const ScrollStackItem = ({ children, itemClassName = '' }) => (
 const ScrollStack = ({
   children,
   className = '',
-  itemDistance = 60,
+  itemDistance = 100,
   itemScale = 0,
   itemStackDistance = 0,
   stackPosition = '0%',

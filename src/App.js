@@ -96,7 +96,7 @@ function App() {
         <div className="topbar-inner container">
           <div className="brand">
             <video muted autoPlay loop playsInline preload="auto" aria-label="logo animation">
-              <source src="/Encryption.mp4" type="video/mp4"/>
+              <source src="./Resources/Encryption.mp4" type="video/mp4"/>
             </video>
             <div className="title"> Encrypt <br /> Your Data </div>
           </div>
@@ -122,10 +122,10 @@ function App() {
                               pillWidth={pillSize.width}
                               active={theme === p.value}
                               onClick={() => { setTheme(p.value); close?.(); }}
-                              baseColor={p.text}
-                              pillColor={p.accent}
-                              hoveredTextColor={p.accent}
-                              pillTextColor={p.text}
+                              baseColor={p.accent}
+                              pillColor={p.text}
+                              hoveredTextColor={p.text}
+                              pillTextColor={p.accent}
                             />
                           </ScrollStackItem>
                         ))}
