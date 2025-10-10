@@ -81,6 +81,12 @@
   height: 100%;
 }
 
+.custom-component-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .pill {
   display: inline-flex;
   align-items: center;
