@@ -1,10 +1,9 @@
-# .github/workflows/lint.yml
 name: Lint & Check Code
 
 on:
   push:
     branches: 
-      - main
+      - master
   pull_request:
 
 jobs:
