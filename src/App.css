@@ -30,6 +30,8 @@
   justify-content: space-between;
   gap: 16px;
   padding: 10px 0px;
+  min-width: 0;
+  flex-wrap: nowrap;
 }
 
 .title { font-size: 20px; font-weight: 700; }
@@ -38,6 +40,11 @@
   display: none;
   gap: 10px;
   align-items: center;
+  position: relative;
+  flex-wrap: nowrap;
+  overflow: visible;
+  flex: 1;
+  min-width: 0;
 }
 
 /* Pill Nav container */
@@ -47,7 +54,9 @@
   display: flex;
   align-items: center;
   gap: 6px;
- }
+  flex: 1;
+  min-width: 0;
+}
 
 .pill-nav a {
   color: var(--muted);
@@ -61,6 +70,95 @@
 
 .pill-nav a:hover { color: var(--text); background: color-mix(in srgb, var(--bg) 70%, transparent); transform: translateY(-1px); box-shadow: 0 6px 14px var(--shadow); }
 .pill-nav a:active { transform: translateY(0); }
+
+/* Theme Dropdown as Sixth Pill */
+.theme-dropdown-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 42px;
+  background: var(--pill-bg, #fff);
+  border-radius: 9999px;
+  padding: 6px;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-width: 200px;
+  max-width: 300px;
+  flex-shrink: 0;
+}
+
+/* Dropdown pill item styles */
+.dropdown-pill-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 3px 0;
+}
+
+.dropdown-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  background: var(--base, #000);
+  color: var(--pill-bg, #fff);
+  text-decoration: none;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  padding: 0 12px;
+  min-width: 80px;
+  width: 100%;
+  max-width: 120px;
+}
+
+.dropdown-pill .hover-circle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-radius: 50%;
+  background: var(--pill-bg, #fff);
+  z-index: 1;
+  display: block;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.dropdown-pill .label-stack {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  z-index: 2;
+}
+
+.dropdown-pill .pill-label {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  line-height: 1;
+  will-change: transform;
+  color: var(--pill-bg, #fff);
+}
+
+.dropdown-pill .pill-label-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--base, #000);
+  z-index: 3;
+  display: inline-block;
+  will-change: transform, opacity;
+}
 
 @media (min-width: 720px) {
   .nav { display: flex; }
@@ -123,50 +221,7 @@
   width: 18px; height: 18px; border-radius: 6px; border: 1px solid var(--border);
 }*/
 
-/* Dropdown wrapper */
-.dropdown {
-  position: relative;
-}
 
-.dropdown-menu {
- position: absolute;
- right: -38px;
-}
-
-.dropdown-menu .scroll-stack-end {
-    width: 100%;
-    height: 8px;
-}
-
-/* Dropdown items (inside ScrollStack) */
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: transparent;
-  color: var(--text);
-  border: none;
-  border-radius: 10px;
-  padding: 16px 20px;
-  text-align: center;
-  font-weight: 900;
-  cursor: pointer;
-  transition: transform 0.15s ease;
-  justify-content: center;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  margin: auto;
-  font-size: 14px;
-}
-
-/* Swatch (small color preview) */
-.swatch {
-  width: 18px;
-  height: 18px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  flex-shrink: 0;
-}
 
 .grid {
   display: grid;

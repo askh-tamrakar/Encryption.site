@@ -283,10 +283,14 @@ const PillNav = ({
         <div className="pill-nav-items desktop-only" ref={navItemsRef}>
           <ul className="pill-list" role="menubar">
             {items.map((item, i) => (
-              <li key={item.href || item.key || `item-${i}`} role="none" style={{ position: 'relative' }}>
-                {item.type === 'pill' ? (
-                  <div className="dropdown" onMouseLeave={closeDropdown}>
-                    <a href='#top'
+              <li key={item.href || item.key || `item-${i}`} role="none" style={{ position:  'relative' }}>
+                {item.type === 'component' ? (
+                  <div className="custom-component-item">
+                    {item.component}
+                  </div>
+                ) : item.type === 'pill' ? (
+                  <div className="dropdown" onMouseLeave={closeDropdown} style={{position: 'relative'}}>
+                    <a href="#"
                       className={
                         `pill${activeHref === item.href ? ' is-active' : ''}`
                       }
@@ -328,6 +332,7 @@ const PillNav = ({
                     to={item.href}
                     className={`pill${activeHref === item.href ? ' is-active' : ''}`}
                     aria-label={item.ariaLabel || item.label}
+                    onClick={item.onClick}
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
                   >
@@ -351,6 +356,7 @@ const PillNav = ({
                     href={item.href}
                     className={`pill${activeHref === item.href ? ' is-active' : ''}`}
                     aria-label={item.ariaLabel || item.label}
+                    onClick={item.onClick}
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
                   >
