@@ -1,0 +1,52 @@
+# .github/workflows/lint.yml
+name: Lint & Check Code
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint Staged Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Get staged files (JS, CSS, HTML, YAML)
+        id: files
+        run: |
+          echo "FILES=$(git diff --name-only ${{ github.sha }} ${{ github.event.before }} | grep -E '\.js$|\.css$|\.html$|\.yml$' | tr '\n' ' ')" >> $GITHUB_ENV
+
+      - name: Run Python lint
+        if: env.FILES != ''
+        run: |
+          echo "🛠 Running pylint on: $FILES"
+          python -m pylint --disable=all --enable=E,F,R,C $FILES
+
+      - name: Run ESLint
+        if: env.FILES != ''
+        run: |
+          echo "🛠 Running ESLint on: $FILES"
+          npx eslint --max-warnings=0 $FILES
