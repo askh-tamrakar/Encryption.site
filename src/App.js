@@ -5,8 +5,6 @@ import themePresets from './themes/presets';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 import PillNav from './components/PillNav';
 import Pill from './components/Pill';
-import { gsap } from 'gsap';
-
 function App() {
   const [theme, setTheme] = React.useState(() => localStorage.getItem('theme') || 'theme-violet');
   const [navColors, setNavColors] = React.useState({ base:'#000000', pill:'#ffffff', pillText:'#000000', hoverText:'#ffffff' });
@@ -15,12 +13,6 @@ function App() {
   const [password, setPassword] = React.useState('');
   const [busy, setBusy] = React.useState(false);
   const [resultB64, setResultB64] = React.useState('');
-  const [isThemeDropdownOpen, setIsThemeDropdownOpen] = React.useState(false);
-  
-  // Pill behavior for dropdown items
-  const dropdownCircleRefs = React.useRef([]);
-  const dropdownTlRefs = React.useRef([]);
-  const dropdownActiveTweenRefs = React.useRef([]);
 
   React.useEffect(() => {
   const root = document.documentElement;
@@ -33,94 +25,6 @@ function App() {
   const text = cs.getPropertyValue('--text').trim() || '#ffffff';
   setNavColors({ base:accent, pill:text, pillText:accent, hoverText:text });
   }, [theme]);
-
-  // Setup dropdown pill behavior
-  React.useEffect(() => {
-      const setupDropdownPills = () => {
-          // Wait for ScrollStack to finish its layout
-          requestAnimationFrame(() => {
-              dropdownCircleRefs.current.forEach((circle, i) => {
-                  if (!circle?.parentElement) return;
-
-                  const pill = circle.parentElement;
-                  const rect = pill.getBoundingClientRect();
-                  
-                  // Skip if element is not visible or has no dimensions
-                  if (rect.width === 0 || rect.height === 0) return;
-                  
-                  const { width: w, height: h } = rect;
-                  const R = ((w * w) / 4 + h * h) / (2 * h);
-                  const D = Math.ceil(2 * R) + 2;
-                  const delta = Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
-                  const originY = D - delta;
-
-                  circle.style.width = `${D}px`;
-                  circle.style.height = `${D}px`;
-                  circle.style.bottom = `-${delta}px`;
-
-                  gsap.set(circle, {
-                      xPercent: -50,
-                      scale: 0,
-                      transformOrigin: `50% ${originY}px`
-                  });
-
-                  const label = pill.querySelector('.pill-label');
-                  const white = pill.querySelector('.pill-label-hover');
-
-                  if (label) gsap.set(label, { y: 0 });
-                  if (white) gsap.set(white, { y: h + 12, opacity: 0 });
-
-                  dropdownTlRefs.current[i]?.kill();
-                  const tl = gsap.timeline({ paused: true });
-
-                  tl.to(circle, { scale: 1.2, xPercent: -50, duration: 2, ease: 'power2.easeOut', overwrite: 'auto' }, 0);
-
-                  if (label) {
-                      tl.to(label, { y: -(h + 8), duration: 2, ease: 'power2.easeOut', overwrite: 'auto' }, 0);
-                  }
-
-                  if (white) {
-                      gsap.set(white, { y: Math.ceil(h + 100), opacity: 0 });
-                      tl.to(white, { y: 0, opacity: 1, duration: 2, ease: 'power2.easeOut', overwrite: 'auto' }, 0);
-                  }
-
-                  dropdownTlRefs.current[i] = tl;
-              });
-          });
-      };
-
-      // Setup pills with multiple attempts to ensure DOM is ready
-      const timer1 = setTimeout(setupDropdownPills, 100);
-      const timer2 = setTimeout(setupDropdownPills, 300);
-      
-      // Also setup on window resize
-      const handleResize = () => {
-          setTimeout(setupDropdownPills, 50);
-      };
-      window.addEventListener('resize', handleResize);
-      
-      return () => {
-          clearTimeout(timer1);
-          clearTimeout(timer2);
-          window.removeEventListener('resize', handleResize);
-          dropdownTlRefs.current.forEach(tl => tl?.kill());
-          dropdownActiveTweenRefs.current.forEach(tween => tween?.kill());
-      };
-  }, [themePresets, isThemeDropdownOpen]);
-
-  // Close dropdown when clicking outside
-  React.useEffect(() => {
-      const handleClickOutside = (event) => {
-          if (isThemeDropdownOpen && !event.target.closest('.nav')) {
-              setIsThemeDropdownOpen(false);
-          }
-      };
-
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-          document.removeEventListener('mousedown', handleClickOutside);
-      };
-  }, [isThemeDropdownOpen]);
 
 
   function onFileChange(ev) {
