@@ -210,7 +210,7 @@ function App() {
                     
                     menu: ({ close }) => (
                       <ScrollStack>
-                        {themePresets.map((p, idx) => (
+                        {themePresets.map((p) => (
                           <ScrollStackItem key={p.value}>
                             <Pill
                               label={p.label}
@@ -218,10 +218,10 @@ function App() {
                               pillWidth={pillSize.width}
                               active={theme === p.value}
                               onClick={() => { setTheme(p.value); close?.(); }}
-                              baseColor={navColors.base}
-                              pillColor={navColors.pill}
-                              hoveredTextColor={navColors.hoverText}
-                              pillTextColor={navColors.pillText}
+                              baseColor={p.text}
+                              pillColor={p.accent}
+                              hoveredTextColor={p.accent}
+                              pillTextColor={p.text}
                             />
                           </ScrollStackItem>
                         ))}
