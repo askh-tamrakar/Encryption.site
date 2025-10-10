@@ -2,7 +2,9 @@ repos:
   - repo: local
     hooks:
       - id: eslint
-        name: eslint
+        name: ESLint Code Quality Check
         entry: npx eslint --max-warnings=0
         language: system
-        types: [javascript, css, html]
+        files: '\.(js|jsx|ts|tsx|html|css)$'
+        pass_filenames: true
+        always_run: true
