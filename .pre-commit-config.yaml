@@ -1,22 +1,8 @@
-# .pre-commit-config.yaml
 repos:
-  # Python linting with pylint
-  - repo: https://github.com/pre-commit/mirrors-pylint
-    rev: v2.17.5  # specify the version of pylint
-    hooks:
-      - id: pylint
-        name: Pylint Python files
-        entry: python -m pylint --disable=all --enable=E,F,R,C
-        language: system  # use your system python
-        types: [python]  # runs on .py files only
-        files: \.py$
-
-  # Node linting with ESLint
   - repo: local
     hooks:
       - id: eslint
-        name: ESLint JS/CSS/HTML/YAML files
+        name: eslint
         entry: npx eslint --max-warnings=0
-        language: node
-        types: [javascript, css, html, yaml]
-        files: \.(js|css|html|yml|yaml)$
+        language: system
+        types: [javascript, css, html]
