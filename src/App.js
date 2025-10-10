@@ -5,6 +5,8 @@ import themePresets from './themes/presets';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 import PillNav from './components/PillNav';
 import Pill from './components/Pill';
+import EncryptText from './components/EncryptText';
+
 function App() {
   const [theme, setTheme] = React.useState(() => localStorage.getItem('theme') || 'theme-violet');
   const [navColors, setNavColors] = React.useState({ base:'#000000', pill:'#ffffff', pillText:'#000000', hoverText:'#ffffff' });
@@ -158,10 +160,12 @@ function App() {
                 <span className="accent">ENCRYPTOR</span>
               </h1>
               <p className="lede">
-                Step into the Shadows where Secrets Burn. <br />
-                With Encryption Born from the Abyss, <br />
-                your Data becomes Untouchable.  <br />
-                Dare to Hide… If you Can. </p>
+                
+                <EncryptText text="Step into the Shadows where Secrets Burn." speed={60} maxIterations={10} /> <br/>
+                <EncryptText text="With Encryption Born from the Abyss," speed={60} maxIterations={12} /> <br/>
+                <EncryptText text="your Data becomes Untouchable." speed={60} maxIterations={12} />  <br/>
+                <EncryptText text="Dare to Hide… If you Can." speed={60} maxIterations={12} /> </p>
+
               <div className="cta">
                 <button className="btn btn-primary" onClick={() => document.getElementById('encrypt-card')?.scrollIntoView({ behavior: 'smooth' })}>Get Started →</button>
                 <a className="btn btn-secondary" href="#encrypt-card">Experience Generator</a>

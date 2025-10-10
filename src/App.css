@@ -67,63 +67,6 @@
   .nav { display: flex; }
 }
 
-/* Themed Select (Theme dropdown) */
-/* Custom dropdown inspired by ReactBits Scroll Stack */
-/*.dropdown { position: relative; }
-.dropdown-button {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 75%, transparent), color-mix(in srgb, var(--bg) 88%, transparent));
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 10px 14px;
-  font-weight: 800;
-  font-size: 14px;
-  box-shadow: inset 0 8px 20px color-mix(in srgb, var(--bg) 80%, transparent);
-}
-.dropdown-button:hover { transform: translateY(-1px); box-shadow: 0 8px 18px var(--shadow), inset 0 8px 20px color-mix(in srgb, var(--bg) 80%, transparent); }
-.dropdown-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    min-width: 240px;
-    width: 260px;
-    max-height: 320px;
-    overflow: hidden;
-    background: rgba(0,0,0,0.01);
-    border: none;
-    border-radius: 20px;
-    padding: 0;
-    display: block;
-    gap: 0;
-    box-shadow: 0 12px 20px -6px var(--shadow), 0 24px 40px -12px var(--shadow);
-    z-index: 20;
-    contain: none;
-}*/
-/* Ensure ScrollStack renders with visible height inside dropdown */
-/*.dropdown-menu .scroll-stack-scroller {
-    pointer-events: auto;*/ /* ensure clicks register */
-/*}
-.dropdown-menu .scroll-stack-inner {
-  padding: 8px;
-}
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: transparent;
-  color: var(--text);
-  border: none;
-  border-radius: 18px;
-  padding: 10px 10px 14px 10px;
-  text-align: left;
-  font-weight: 900;
-}
-.dropdown-item:hover { transform: translateY(-1px); }
-
-.swatch {
-  width: 18px; height: 18px; border-radius: 6px; border: 1px solid var(--border);
-}*/
-
 /* Dropdown wrapper */
 .dropdown {
   position: relative;
