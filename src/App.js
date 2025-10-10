@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-// logo replaced by video in topbar brand
 import { encryptText, bytesToBase64 } from './crypto';
 import themePresets from './themes/presets';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
@@ -195,6 +194,25 @@ function App() {
     URL.revokeObjectURL(url);
   }
 
+  const [pillSize, setPillSize] = React.useState({ width: 0, height: 0 });
+  React.useEffect(() => {
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    
+    context.font = "16px Inter, sans-serif";
+    
+    let maxWidth = 0;
+    themePresets.forEach(p => {
+      const metrics = context.measureText(p.label);
+      const w = metrics.width;
+      if (w > maxWidth) maxWidth = w;
+    });
+
+    // Add some padding on both sides (for pill curve + breathing room)
+    const paddedWidth = Math.ceil(maxWidth + 60); // tweak padding if needed
+    setPillSize({ width: paddedWidth, height: 40 }); // consistent height
+  }, [themePresets]);
+
   return (
     <div className="app-root">
       <div className="topbar">
@@ -223,6 +241,8 @@ function App() {
                           <ScrollStackItem key={p.value}>
                             <Pill
                               label={p.label}
+                              pillHeight={42}
+                              pillWidth={pillSize.width}
                               active={theme === p.value}
                               onClick={() => { setTheme(p.value); close?.(); }}
                               baseColor={navColors.base}

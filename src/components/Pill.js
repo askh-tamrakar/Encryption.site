@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import './PillNav.css'; // Reuse same styling
+import './PillNav.css';
 
-const Pill = ({
+const PillLink = ({
   label,
   href = '#',
   onClick,
@@ -12,17 +12,17 @@ const Pill = ({
   hoveredTextColor = '#060010',
   pillTextColor = '#fff',
   ease = 'power3.easeOut',
-  as = 'a', // allows using Link, button, or <a>
+  as = 'a',
+  pillWidth,
+  pillHeight,  
   ...props
 }) => {
-  const resolvedPillTextColor = pillTextColor ?? baseColor;
   const circleRef = useRef(null);
   const labelRef = useRef(null);
   const hoverLabelRef = useRef(null);
   const tlRef = useRef(null);
   const activeTweenRef = useRef(null);
 
-  // Layout / sizing logic for circle
   useEffect(() => {
     const circle = circleRef.current;
     const label = labelRef.current;
@@ -30,8 +30,8 @@ const Pill = ({
     const pill = circle?.parentElement;
     if (!circle || !pill) return;
 
-    const rect = pill.getBoundingClientRect();
-    const { width: w, height: h } = rect;
+    const w = pillWidth || pill.offsetWidth;
+    const h = pillHeight || pill.offsetHeight;
     const R = ((w * w) / 4 + h * h) / (2 * h);
     const D = Math.ceil(2 * R) + 2;
     const delta = Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
@@ -53,14 +53,14 @@ const Pill = ({
       tl.to(white, { y: 0, opacity: 1, duration: 2, ease }, 0);
     }
     tlRef.current = tl;
-  }, [label, ease]);
+  }, [label, ease, pillWidth, pillHeight]);
 
   const handleEnter = () => {
     const tl = tlRef.current;
     if (!tl) return;
     activeTweenRef.current?.kill();
     activeTweenRef.current = tl.tweenTo(tl.duration(), {
-      duration: 0.5,
+      duration: 0.3,
       ease,
       overwrite: 'auto'
     });
@@ -71,7 +71,7 @@ const Pill = ({
     if (!tl) return;
     activeTweenRef.current?.kill();
     activeTweenRef.current = tl.tweenTo(0, {
-      duration: 0.35,
+      duration: 0.2,
       ease,
       overwrite: 'auto'
     });
@@ -83,7 +83,13 @@ const Pill = ({
     '--base': baseColor,
     '--pill-bg': pillColor,
     '--hover-text': hoveredTextColor,
-    '--pill-text': resolvedPillTextColor
+    '--pill-text': pillTextColor
+  };
+
+  const inlineStyle = {
+    width: pillWidth ? `${pillWidth}px` : 'auto',
+    height: pillHeight ? `${pillHeight}px` : 'auto',
+    ...cssVars,
   };
 
   return (
@@ -91,22 +97,18 @@ const Pill = ({
       href={as === 'a' ? href : undefined}
       className={`pill${isActive ? ' is-active' : ''}`}
       onClick={onClick}
-      style={cssVars}
+      style={inlineStyle}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       {...props}
     >
       <span className="hover-circle" aria-hidden="true" ref={circleRef}></span>
       <span className="label-stack">
-        <span className="pill-label" ref={labelRef}>
-          {label}
-        </span>
-        <span className="pill-label-hover" ref={hoverLabelRef} aria-hidden="true">
-          {label}
-        </span>
+        <span className="pill-label" ref={labelRef}>{label}</span>
+        <span className="pill-label-hover" ref={hoverLabelRef} aria-hidden="true">{label}</span>
       </span>
     </Element>
   );
 };
 
-export default Pill;
+export default PillLink;
