@@ -108,33 +108,6 @@ function App() {
       };
   }, [themePresets, isThemeDropdownOpen]);
 
-  const handleDropdownEnter = (i) => {
-      const tl = dropdownTlRefs.current[i];
-      if (!tl) return;
-      dropdownActiveTweenRefs.current[i]?.kill();
-      dropdownActiveTweenRefs.current[i] = tl.tweenTo(tl.duration(), {
-          duration: 0.5,
-          ease: 'power2.easeOut',
-          overwrite: 'auto'
-      });
-  };
-
-  const handleDropdownLeave = (i) => {
-      const tl = dropdownTlRefs.current[i];
-      if (!tl) return;
-      dropdownActiveTweenRefs.current[i]?.kill();
-      dropdownActiveTweenRefs.current[i] = tl.tweenTo(0, {
-          duration: 0.35,
-          ease: 'power2.easeOut',
-          overwrite: 'auto'
-      });
-  };
-
-  const toggleThemeDropdown = () => {
-      console.log('Theme dropdown toggled:', !isThemeDropdownOpen);
-      setIsThemeDropdownOpen(!isThemeDropdownOpen);
-  };
-
   // Close dropdown when clicking outside
   React.useEffect(() => {
       const handleClickOutside = (event) => {
