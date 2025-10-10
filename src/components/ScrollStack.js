@@ -1,4 +1,3 @@
-
 import React, { useRef, useLayoutEffect, useCallback } from 'react';
 import Lenis from 'lenis';
 import './ScrollStack.css';
@@ -10,9 +9,9 @@ export const ScrollStackItem = ({ children, itemClassName = '' }) => (
 const ScrollStack = ({
   children,
   className = '',
-  itemDistance = 0,
+  itemDistance = 100,
   itemScale = 0,
-  itemStackDistance = 80,
+  itemStackDistance = 0,
   stackPosition = '0%',
   scaleEndPosition = '0%',
   baseScale = 1,
@@ -301,12 +300,11 @@ const ScrollStack = ({
     updateCardTransforms
   ]);
 
-
-
   return (
     <div className={`scroll-stack-scroller ${className}`.trim()} ref={scrollerRef}>
       <div className="scroll-stack-inner">
         {children}
+        {/* Spacer so the last pin can release cleanly */}
         <div className="scroll-stack-end" />
       </div>
     </div>
@@ -314,6 +312,3 @@ const ScrollStack = ({
 };
 
 export default ScrollStack;
-
-
-

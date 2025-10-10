@@ -5,6 +5,7 @@ import { encryptText, bytesToBase64 } from './crypto';
 import themePresets from './themes/presets';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 import PillNav from './components/PillNav';
+import Pill from './components/Pill';
 import { gsap } from 'gsap';
 
 function App() {
@@ -215,109 +216,25 @@ function App() {
                   { label: 'Theme',
                     type: 'pill',
                     key: 'theme-dropdown',
+                    
                     menu: ({ close }) => (
                       <ScrollStack>
                         {themePresets.map((p, idx) => (
                           <ScrollStackItem key={p.value}>
-                            {/* <PillNav
-                              items={[
-                                { 
-                                  label: p.label,
-                                  onClick: () => { setTheme(p.value); close?.();}
-                                }
-                              ]}
-                            /> */}
-
-                            <a
-                                  href="#"
-                                  className="pill dropdown-pill"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    console.log('Theme clicked:', p.value);
-                                    setTheme(p.value);
-                                    setIsThemeDropdownOpen(false);
-                                  }}
-                                  onMouseDown={e => e.preventDefault()}
-                                  onMouseEnter={() => handleDropdownEnter(idx)}
-                                  onMouseLeave={() => handleDropdownLeave(idx)}
-                                >
-                                  <span 
-                                    className="hover-circle" 
-                                    aria-hidden="true"
-                                    ref={el => {
-                                      dropdownCircleRefs.current[idx] = el;
-                                    }}
-                                  />
-                                  <span className="label-stack">
-                                    <span className="pill-label">{p.label}</span>
-                                    <span className="pill-label-hover" aria-hidden="true">{p.label}</span>
-                                  </span>
-                                </a>
-                            
+                            <Pill
+                              label={p.label}
+                              active={theme === p.value}
+                              onClick={() => { setTheme(p.value); close?.(); }}
+                              baseColor={navColors.base}
+                              pillColor={navColors.pill}
+                              hoveredTextColor={navColors.hoverText}
+                              pillTextColor={navColors.pillText}
+                            />
                           </ScrollStackItem>
                         ))}
                       </ScrollStack>
                     )
                   }
-                
-                  // },
-                  // // Theme Dropdown as Sixth Pill
-                  // ...(isThemeDropdownOpen ? [{
-                  //   type: 'component',
-                  //   key: 'theme-dropdown',
-                  //   component: (
-                  //     <div className="theme-dropdown-pill" style={{
-                  //       '--base': navColors.base,
-                  //       '--pill-bg': navColors.pill,
-                  //       '--hover-text': navColors.hoverText,
-                  //       '--pill-text': navColors.pillText
-                  //     }}>
-                  //       <ScrollStack
-                  //         itemDistance={0}
-                  //         itemScale={0}
-                  //         itemStackDistance={80}
-                  //         stackPosition="0%"
-                  //         scaleEndPosition="0%"
-                  //         baseScale={1}
-                  //         rotationAmount={0}
-                  //         blurAmount={0}
-                  //         useWindowScroll={false}
-                  //       >
-                  //         {themePresets.map((p, idx) => (
-                  //           <ScrollStackItem key={p.value}>
-                  //             <div className="dropdown-pill-item">
-                  //               <a
-                  //                 href="#"
-                  //                 className="pill dropdown-pill"
-                  //                 onClick={(e) => {
-                  //                   e.preventDefault();
-                  //                   console.log('Theme clicked:', p.value);
-                  //                   setTheme(p.value);
-                  //                   setIsThemeDropdownOpen(false);
-                  //                 }}
-                  //                 onMouseDown={e => e.preventDefault()}
-                  //                 onMouseEnter={() => handleDropdownEnter(idx)}
-                  //                 onMouseLeave={() => handleDropdownLeave(idx)}
-                  //               >
-                  //                 <span 
-                  //                   className="hover-circle" 
-                  //                   aria-hidden="true"
-                  //                   ref={el => {
-                  //                     dropdownCircleRefs.current[idx] = el;
-                  //                   }}
-                  //                 />
-                  //                 <span className="label-stack">
-                  //                   <span className="pill-label">{p.label}</span>
-                  //                   <span className="pill-label-hover" aria-hidden="true">{p.label}</span>
-                  //                 </span>
-                  //               </a>
-                  //             </div>
-                  //           </ScrollStackItem>
-                  //         ))}
-                  //       </ScrollStack>
-                  //     </div>
-                  //   )
-                  // }] : [])
                 ]}
                 activeHref={typeof window !== 'undefined' ? window.location.hash || '#top' : '#top'}
                 className="custom-nav"

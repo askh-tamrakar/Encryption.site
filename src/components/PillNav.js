@@ -284,13 +284,9 @@ const PillNav = ({
           <ul className="pill-list" role="menubar">
             {items.map((item, i) => (
               <li key={item.href || item.key || `item-${i}`} role="none" style={{ position:  'relative' }}>
-                {item.type === 'component' ? (
-                  <div className="custom-component-item">
-                    {item.component}
-                  </div>
-                ) : item.type === 'pill' ? (
+                {item.type === 'pill' ? (
                   <div className="dropdown" onMouseLeave={closeDropdown} style={{position: 'relative'}}>
-                    <a href="#"
+                    <a href="#top"
                       className={
                         `pill${activeHref === item.href ? ' is-active' : ''}`
                       }
@@ -331,8 +327,8 @@ const PillNav = ({
                     role="menuitem"
                     to={item.href}
                     className={`pill${activeHref === item.href ? ' is-active' : ''}`}
-                    aria-label={item.ariaLabel || item.label}
                     onClick={item.onClick}
+                    aria-label={item.ariaLabel || item.label}
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
                   >
@@ -355,8 +351,8 @@ const PillNav = ({
                     role="menuitem"
                     href={item.href}
                     className={`pill${activeHref === item.href ? ' is-active' : ''}`}
-                    aria-label={item.ariaLabel || item.label}
                     onClick={item.onClick}
+                    aria-label={item.ariaLabel || item.label}
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
                   >
