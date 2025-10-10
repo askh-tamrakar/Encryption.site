@@ -289,6 +289,21 @@ code {
   cursor: pointer;
   transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
 }
+
+.btn-encrypting {
+  background: var(--primary);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2px 3px;
+  font-weight: 800;
+  cursor: pointer;
+  height: 54px;
+  width: 200px;
+  font-size: 19px;
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
 .btn:hover {
   transform: translateY(-1px);
 }

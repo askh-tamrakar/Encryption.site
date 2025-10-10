@@ -11,8 +11,18 @@
   gap: 12px;
 }
 
-.brand img { width: 40px; height: 40px; }
-.brand video { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; }
+.brand img { 
+  width: 40px; 
+  height: 40px; 
+}
+.brand video { 
+  width: 56px; 
+  height: 56px; 
+  border-radius: 6px; 
+  object-fit: fill;
+  pointer-events: none; 
+  user-select: none; 
+}
 
 .topbar {
   position: sticky;
@@ -33,7 +43,7 @@
   padding: 10px 0px;
 }
 
-.title { font-size: 20px; font-weight: 700; }
+.title { font-size: 26px; font-weight: 1000; }
 
 .nav {
   display: none;

@@ -145,7 +145,7 @@ function App() {
               />
             </div>
           </nav>
-          <button className="btn" onClick={() => document.getElementById('encrypt-card')?.scrollIntoView({ behavior: 'smooth' })}>Start Encrypting</button>
+          <button className="btn-encrypting" onClick={() => document.getElementById('encrypt-card')?.scrollIntoView({ behavior: 'smooth' })}>Start Encrypting</button>
         </div>
       </div>
 
