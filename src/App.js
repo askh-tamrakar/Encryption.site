@@ -88,7 +88,7 @@ function App() {
     // Add some padding on both sides (for pill curve + breathing room)
     const paddedWidth = Math.ceil(maxWidth + 60); // tweak padding if needed
     setPillSize({ width: paddedWidth, height: 40 }); // consistent height
-  }, [themePresets]);
+  }, []);
 
   return (
     <div className="app-root">
