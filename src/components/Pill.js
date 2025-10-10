@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import './PillNav.css';
 
-const PillLink = ({
+const Pill = ({
   label,
   href = '#',
   onClick,
@@ -111,4 +111,4 @@ const PillLink = ({
   );
 };
 
-export default PillLink;
+export default Pill;
