@@ -5,7 +5,6 @@ import { encryptText, bytesToBase64 } from './crypto';
 import themePresets from './themes/presets';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 import PillNav from './components/PillNav';
-import { a, label, link } from 'motion/react-client';
 
 function App() {
 
