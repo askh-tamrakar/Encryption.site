@@ -47,20 +47,17 @@
 
 .dropdown-menu .scroll-stack-scroller {
   position: relative;
-  width: 200px;
-  max-height: 70px;
+  width: 252px;
+  max-height: 48px;
   overflow-y: hidden;
   overflow-x: hidden;
   scroll-behavior: smooth;
   transform: translateZ(0);
   will-change: scroll-position;
-  top: 6px;
-    
 }
 
 .dropdown-menu .scroll-stack-inner {
-    padding: 1px; /* reduce huge padding for dropdown */
-    min-height: auto; /* let it shrink to fit content */
+    padding: 0px; 
 }
 
 .dropdown-menu .scroll-stack-card-wrapper {
@@ -72,9 +69,9 @@
   will-change: transform, filter;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  height: 50px;
-  width: auto;
-  margin: 2px 0px;
+  height: 48px;
+  width: 180px;
+  margin: 0px 0px;
   padding: 0px 0px;
   border-radius: 0px;
   box-sizing: border-box;

@@ -283,10 +283,10 @@ const PillNav = ({
         <div className="pill-nav-items desktop-only" ref={navItemsRef}>
           <ul className="pill-list" role="menubar">
             {items.map((item, i) => (
-              <li key={item.href || item.key || `item-${i}`} role="none" style={{ position: 'relative' }}>
+              <li key={item.href || item.key || `item-${i}`} role="none" style={{ position:  'relative' }}>
                 {item.type === 'pill' ? (
-                  <div className="dropdown" onMouseLeave={closeDropdown}>
-                    <a href='#top'
+                  <div className="dropdown" onMouseLeave={closeDropdown} style={{position: 'relative'}}>
+                    <a href="#"
                       className={
                         `pill${activeHref === item.href ? ' is-active' : ''}`
                       }

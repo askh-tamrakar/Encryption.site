@@ -5,6 +5,7 @@ import { encryptText, bytesToBase64 } from './crypto';
 import themePresets from './themes/presets';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 import PillNav from './components/PillNav';
+import { a, label, link } from 'motion/react-client';
 
 function App() {
 
@@ -91,24 +92,32 @@ function App() {
                   { label: 'About', href: '#about' },
                   { label: 'How it Works', href: '#how' },
                   { label: 'Login', href: '#login' },
-                  {
+                  { label: 'Theme',
                     type: 'pill',
-                    label: 'Theme',
                     key: 'theme-dropdown',
                     menu: ({ close }) => (
                       <ScrollStack>
-                        {themePresets.map(p => (
+                        {themePresets.map((p, idx) => (
                           <ScrollStackItem key={p.value}>
-                            <button
-                              className="dropdown-item"
-                              onClick={() => { setTheme(p.value); close?.(); }}
-                              style={{
-                                background: `${p.color}`,
-                                color: '#fff'
-                              }}
-                            > 
-                              {p.label}
-                            </button>
+                            <PillNav
+                              items={[
+                                { href: '#',
+                                  label: p.label,
+                                  onClick: () => {
+                                    console.log('Theme clicked:', p.value);
+                                    setTheme(p.value);
+                                    close?.();
+                                  }
+                                }
+                              ]}
+                              activeHref={typeof window !== 'undefined' ? window.location.hash || '#top' : '#top'}
+                              className="custom-nav"
+                              ease="power2.easeOut"
+                              baseColor={navColors.base}
+                              pillColor={navColors.pill}
+                              hoveredPillTextColor={navColors.hoverText}
+                              pillTextColor={navColors.pillText}
+                            />
                           </ScrollStackItem>
                         ))}
                       </ScrollStack>
