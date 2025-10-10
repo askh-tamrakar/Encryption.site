@@ -27,10 +27,7 @@ const themePresets = [
   // 🌅 Warm & Vibrant
   { value: 'theme-sunset',      label: 'Amber Dusk',      accent: '#ffb86b', text: '#fff4ee' },
   { value: 'theme-vibrant',     label: 'Vibrant Warm',    accent: '#E17A47', text: '#061016' },
-  { value: 'theme-blush',       label: 'Blush Tide',      accent: '#56BEA6', text: '#10222b' },
-  
-  // root
-  { value: 'theme-root',        label: 'Root Chakra',     accent: '#61dafb', text: '#f5f5f5' }
+  { value: 'theme-blush',       label: 'Blush Tide',      accent: '#56BEA6', text: '#10222b' }
 
 ];
 
