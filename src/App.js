@@ -98,25 +98,13 @@ function App() {
                       <ScrollStack>
                         {themePresets.map((p, idx) => (
                           <ScrollStackItem key={p.value}>
-                            <PillNav
-                              items={[
-                                { href: '#',
-                                  label: p.label,
-                                  onClick: () => {
-                                    console.log('Theme clicked:', p.value);
-                                    setTheme(p.value);
-                                    close?.();
-                                  }
-                                }
-                              ]}
-                              activeHref={typeof window !== 'undefined' ? window.location.hash || '#top' : '#top'}
-                              className="custom-nav"
-                              ease="power2.easeOut"
-                              baseColor={navColors.base}
-                              pillColor={navColors.pill}
-                              hoveredPillTextColor={navColors.hoverText}
-                              pillTextColor={navColors.pillText}
-                            />
+                            <a 
+                              href='#' 
+                              className='pill' 
+                              onClick={() => { setTheme(p.value); close?.(); }}
+                            >
+                              {p.label}
+                            </a>
                           </ScrollStackItem>
                         ))}
                       </ScrollStack>
