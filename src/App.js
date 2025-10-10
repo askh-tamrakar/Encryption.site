@@ -99,7 +99,7 @@ function App() {
                         {themePresets.map((p, idx) => (
                           <ScrollStackItem key={p.value}>
                             <a 
-                              href='#' 
+                              href='#top' 
                               className='pill' 
                               onClick={() => { setTheme(p.value); close?.(); }}
                             >
