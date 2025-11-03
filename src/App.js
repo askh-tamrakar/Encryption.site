@@ -161,10 +161,10 @@ function App() {
               </h1>
               <p className="lede">
                 
-                <EncryptText text="Step into the Shadows where Secrets Burn." speed={60} maxIterations={10} /> <br/>
-                <EncryptText text="With Encryption Born from the Abyss," speed={60} maxIterations={12} /> <br/>
-                <EncryptText text="your Data becomes Untouchable." speed={60} maxIterations={12} />  <br/>
-                <EncryptText text="Dare to Hide… If you Can." speed={60} maxIterations={12} /> </p>
+                <EncryptText text="Step into the Shadows where Secrets Burn." sequential={true} encryptDirection="start" decryptDirection="start" speed={60} maxIterations={10} /> <br/>
+                <EncryptText text="With Encryption Born from the Abyss," sequential={true} encryptDirection="start" decryptDirection="start" speed={60} maxIterations={12} /> <br/>
+                <EncryptText text="your Data becomes Untouchable." sequential={true} encryptDirection="start" decryptDirection="start" speed={60} maxIterations={12} />  <br/>
+                <EncryptText text="Dare to Hide… If you Can." sequential={true} encryptDirection="start" decryptDirection="start" speed={60} maxIterations={12} /> </p>
 
               <div className="cta">
                 <button className="btn btn-primary" onClick={() => document.getElementById('encrypt-card')?.scrollIntoView({ behavior: 'smooth' })}>Get Started →</button>
