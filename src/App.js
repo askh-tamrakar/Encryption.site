@@ -157,7 +157,7 @@ function App() {
               <h1 className="headline">
                 CRYPTIC
                 <br/>
-                <span className="accent">ENCRYPTOR</span>
+                <span className="accent"> ENCRYPTOR </span>
               </h1>
               <p className="lede">
                 
