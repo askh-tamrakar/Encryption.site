@@ -10,7 +10,7 @@
   --shadow: rgba(0,0,0,0.35);
 }
 
-/* Theme 1: F7374F, 88304E, 522546, 2C2C2C */
+/* Theme 1 */
 .theme-rose {
   --bg: #2C2C2C;
   --surface: #522546;
@@ -23,7 +23,7 @@
   --shadow: rgba(0,0,0,0.35);
 }
 
-/* Theme 2: 030637, 3C0753, 720455, 910A67 */
+/* Theme 2 */
 .theme-violet {
   --bg: #030637;
   --surface: #3C0753;
@@ -36,7 +36,7 @@
   --shadow: rgba(10, 6, 55, 0.45);
 }
 
-/* Theme 3: 2F5249, 437057, 97B067, E3DE61 */
+/* Theme 3 */
 .theme-olive {
   --bg: #2F5249;
   --surface: #437057;
@@ -88,7 +88,7 @@
   --shadow: rgba(0, 0, 0, 0.45);
 }
 
-/* Extra: Slate */
+/* Slate */
 .theme-slate {
   --bg: #0b0d12;
   --surface: #121723;
@@ -101,7 +101,7 @@
   --shadow: rgba(2, 4, 9, 0.55);
 }
 
-/* Mint/Coral palette: 99B898, FFCEA8, FF847C, E84A5F, 2A363B */
+/* Mint/Coral */
 .theme-mint {
   --bg: #2A363B;
   --surface: #99B898;
@@ -114,7 +114,7 @@
   --shadow: rgba(0,0,0,0.5);
 }
 
-/* Blush/Teal palette: F18C8E, F0B7A4, F1D1B5, 56BEA6, 305F72 */
+/* Blush/Teal */
 .theme-blush {
   --bg: #305F72;
   --surface: #F1D1B5;
@@ -127,7 +127,7 @@
   --shadow: rgba(3, 19, 33, 0.5);
 }
 
-/* Vibrant Warm palette: EF3D59, E17A47, EFC958, 4AB19D, 344E5C */
+/* Vibrant Warm */
 .theme-vibrant {
   --bg: #344E5C;
   --surface: #4AB19D;
@@ -140,7 +140,7 @@
   --shadow: rgba(10, 19, 26, 0.5);
 }
 
-/* Plum palette: 1A1A1D, 3B1C32, 6A1E55, A64D79 */
+/* Plum palette */
 .theme-plum {
   --bg: #1A1A1D;
   --surface: #3B1C32;
@@ -153,6 +153,7 @@
   --shadow: rgba(0,0,0,0.55);
 }
 
+/* Golden Ember */
 .theme-yellow {
     --bg: #FFF7B0;
     --surface: #FFE680;
@@ -165,6 +166,7 @@
     --shadow: rgba(0,0,0,0.25);
 }
 
+/* Golden Eclipse */
 .theme-yellow-dark {
     --bg: #2C2B28; 
     --surface: #3B392F; 
@@ -241,7 +243,6 @@
   --border: #4A276F;
   --shadow: rgba(10, 0, 30, 0.5);
 }
-
 
 
 html, body, #root {
