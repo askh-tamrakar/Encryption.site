@@ -118,7 +118,7 @@ function App() {
                       <ScrollStack>
                         {themePresets.map((p) => (
                           <ScrollStackItem key={p.value}>
-                            <Pill
+                            <Pill 
                               label={p.label}
                               pillHeight={42}
                               pillWidth={pillSize.width}
