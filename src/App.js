@@ -172,13 +172,22 @@ function App() {
               </div>
             </div>
             <div>
-              <div className="mosaic">
-                <div className="mosaic-item"> <video src="/Encryption.svg" alt="preview"/> </div>
-                <div className="mosaic-item"> <video src="/lock.mp4" muted autoPlay loop playsInline/> </div>
-                <div className="mosaic-item"> <img src="/encryption-file.png" alt="file"/> </div>
-                <div className="mosaic-item"> <video src="/door.mp4" muted autoPlay loop playsInline/> </div>
-                <div className="mosaic-item"> <img src="/encryption-file.png" alt="file 2"/> </div>
-                <div className="mosaic-item"> <img src="/encryption.png" alt="preview 2"/> </div>
+              <div className="mosaic row-1">
+                <div className="mosaic-item"> <video src="./Resources/Encryption.mp4" type="video/mp4"  muted autoPlay loop playsInline/> </div>
+                <div className="mosaic-item"> <video src="./Resources/Encryption.mp4" type="video/mp4"  muted autoPlay loop playsInline/> </div>
+                <div className="mosaic-item"> <video src="./Resources/Encryption.mp4" type="video/mp4"  muted autoPlay loop playsInline/> </div>
+              </div>
+
+              <div className="mosaic row-2">
+                <div className="mosaic-item"> <video src="./Resources/Encryption.mp4" type="video/mp4"  muted autoPlay loop playsInline/> </div>
+                <div className="mosaic-item"> <video src="./Resources/Encryption.mp4" type="video/mp4"  muted autoPlay loop playsInline/> </div>
+                <div className="mosaic-item"> <video src="./Resources/Encryption.mp4" type="video/mp4"  muted autoPlay loop playsInline/> </div>
+              </div>
+
+              <div className="mosaic row-3">
+                <div className="mosaic-item"> <video src="./Resources/Encryption.mp4" type="video/mp4"  muted autoPlay loop playsInline/> </div>
+                <div className="mosaic-item"> <video src="./Resources/Encryption.mp4" type="video/mp4"  muted autoPlay loop playsInline/> </div>
+                <div className="mosaic-item"> <video src="./Resources/Encryption.mp4" type="video/mp4"  muted autoPlay loop playsInline/> </div>
               </div>
             </div>
           </div>
