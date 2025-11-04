@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github\\workflows",
-    "\\src\\themes",
-    "\\themes"
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\Auth"
   ],
-  "SelectedNode": "\\package-lock.json",
+  "SelectedNode": "\\src\\components\\Auth.css",
   "PreviewInSolutionExplorer": false
 }

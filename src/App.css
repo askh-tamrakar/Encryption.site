@@ -19,7 +19,7 @@
   width: 56px; 
   height: 56px; 
   border-radius: 6px; 
-  object-fit: fill;
+  object-fit: fill; 
   pointer-events: none; 
   user-select: none; 
 }
@@ -51,7 +51,6 @@
   align-items: center;
 }
 
-/* Pill Nav container */
 .pill-nav {
   padding: 6px;
   border-radius: 999px;

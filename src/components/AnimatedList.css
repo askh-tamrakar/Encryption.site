@@ -9,18 +9,18 @@
     padding: 16px;
 }
 
-    .scroll-list::-webkit-scrollbar {
-        width: 8px;
-    }
+.scroll-list::-webkit-scrollbar {
+    width: 8px;
+}
 
-    .scroll-list::-webkit-scrollbar-track {
-        background: #060010;
-    }
+.scroll-list::-webkit-scrollbar-track {
+    background: #060010;
+}
 
-    .scroll-list::-webkit-scrollbar-thumb {
-        background: #271e37;
-        border-radius: 4px;
-    }
+.scroll-list::-webkit-scrollbar-thumb {
+    background: #271e37;
+    border-radius: 4px;
+}
 
 .no-scrollbar::-webkit-scrollbar {
     display: none;

@@ -5,47 +5,60 @@ import themePresets from './themes/presets';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 import PillNav from './components/PillNav';
 import Pill from './components/Pill';
+import AuthModal from './components/Auth/AuthModal';
 import EncryptText from './components/EncryptText';
 
 function App() {
   const [theme, setTheme] = React.useState(() => localStorage.getItem('theme') || 'theme-violet');
-  const [navColors, setNavColors] = React.useState({ base:'#000000', pill:'#ffffff', pillText:'#000000', hoverText:'#ffffff' });
+  const [navColors, setNavColors] = React.useState({ base: '#000000', pill: '#ffffff', pillText: '#000000', hoverText: '#ffffff' });
   const [fileName, setFileName] = React.useState('');
   const [fileText, setFileText] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [busy, setBusy] = React.useState(false);
   const [resultB64, setResultB64] = React.useState('');
+  
+  // Auth state
+  const [authView, setAuthView] = React.useState(null); // 'signup' | 'login' | null
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
 
+  // Theme management
   React.useEffect(() => {
-  const root = document.documentElement;
-  const existing = Array.from(root.classList).filter(c => c.startsWith('theme-'));
-  if (existing.length) root.classList.remove(...existing);
-  root.classList.add(theme);
-  localStorage.setItem('theme', theme);
-  const cs = getComputedStyle(root);
-  const accent = cs.getPropertyValue('--accent').trim() || '#121212';
-  const text = cs.getPropertyValue('--text').trim() || '#ffffff';
-  setNavColors({ base:accent, pill:text, pillText:accent, hoverText:text });
+    const root = document.documentElement;
+    const existing = Array.from(root.classList).filter(c => c.startsWith('theme-'));
+    if (existing.length) root.classList.remove(...existing);
+    root.classList.add(theme);
+    localStorage.setItem('theme', theme);
+
+    const cs = getComputedStyle(root);
+    const accent = cs.getPropertyValue('--accent').trim() || '#121212';
+    const text = cs.getPropertyValue('--text').trim() || '#ffffff';
+    setNavColors({ base: accent, pill: text, pillText: accent, hoverText: text });
   }, [theme]);
 
-
+  // File handling
   function onFileChange(ev) {
-      const file = ev.target.files?.[0];
-      if (!file) return;
-      setFileName(file.name);
-      const isTxt = /\.txt$/i.test(file.name);
-      if (!isTxt) {
-          alert('Please upload a .txt file');
-          return;
-      }
-      const reader = new FileReader();
-      reader.onload = () => setFileText(String(reader.result || ''));
-      reader.readAsText(file);
+    const file = ev.target.files?.[0];
+    if (!file) return;
+    setFileName(file.name);
+    const isTxt = /\.txt$/i.test(file.name);
+    if (!isTxt) {
+      alert('Please upload a .txt file');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => setFileText(String(reader.result || ''));
+    reader.readAsText(file);
   }
 
   async function onEncrypt() {
-    if (!fileText) { alert('Please select a .txt file'); return; }
-    if (!password || password.length < 6) { alert('Use a password with at least 6 characters'); return; }
+    if (!fileText) {
+      alert('Please select a .txt file');
+      return;
+    }
+    if (!password || password.length < 6) {
+      alert('Use a password with at least 6 characters');
+      return;
+    }
     setBusy(true);
     try {
       const bytes = await encryptText(fileText, password);
@@ -73,13 +86,29 @@ function App() {
     URL.revokeObjectURL(url);
   }
 
+  // Handle successful auth
+  const handleSignupSuccess = () => {
+    console.log('Signup successful!');
+    setIsAuthenticated(true);
+    setAuthView(null);
+    // Optionally redirect or show welcome message
+  };
+
+  const handleLoginSuccess = () => {
+    console.log('Login successful!');
+    setIsAuthenticated(true);
+    setAuthView(null);
+    // Optionally redirect or show welcome message
+  };
+
+  // Pill size calculation
   const [pillSize, setPillSize] = React.useState({ width: 0, height: 0 });
   React.useEffect(() => {
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d");
-    
-    context.font = "16px Inter, sans-serif";
-    
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+
+    context.font = '16px Inter, sans-serif';
+
     let maxWidth = 0;
     themePresets.forEach(p => {
       const metrics = context.measureText(p.label);
@@ -87,43 +116,59 @@ function App() {
       if (w > maxWidth) maxWidth = w;
     });
 
-    // Add some padding on both sides (for pill curve + breathing room)
-    const paddedWidth = Math.ceil(maxWidth + 60); // tweak padding if needed
-    setPillSize({ width: paddedWidth, height: 40 }); // consistent height
+    const paddedWidth = Math.ceil(maxWidth + 60);
+    setPillSize({ width: paddedWidth, height: 40 });
   }, []);
 
   return (
     <div className="app-root">
+      {/* Navigation */}
       <div className="topbar">
         <div className="topbar-inner container">
           <div className="brand">
             <video muted autoPlay loop playsInline preload="auto" aria-label="logo animation">
-              <source src="./Resources/Encryption.mp4" type="video/mp4"/>
+              <source src="./Resources/Encryption.mp4" type="video/mp4" />
             </video>
-            <div className="title"> Encrypt <br /> Your Data </div>
+            <div className="title">
+              Encrypt <br /> Your Data
+            </div>
           </div>
+
           <nav className="nav">
-            <div className="pill-nav" style={{background:'transparent', border:'none', boxShadow:'none', padding:0}}>
+            <div className="pill-nav" style={{ background: 'transparent', border: 'none', boxShadow: 'none', padding: 0 }}>
               <PillNav
                 items={[
                   { label: 'Home', href: '#top' },
                   { label: 'About', href: '#about' },
                   { label: 'How it Works', href: '#how' },
-                  { label: 'Login', href: '#login' },
-                  { label: 'Theme',
+                  {
+                    label: isAuthenticated ? 'Logout' : 'Login',
+                    onClick: () => {
+                      if (isAuthenticated) {
+                        setIsAuthenticated(false);
+                        alert('Logged out successfully');
+                      } else {
+                        setAuthView('login');
+                      }
+                    }
+                  },
+                  {
+                    label: 'Theme',
                     type: 'pill',
                     key: 'theme-dropdown',
-                    
                     menu: ({ close }) => (
                       <ScrollStack>
                         {themePresets.map((p) => (
                           <ScrollStackItem key={p.value}>
-                            <Pill 
+                            <Pill
                               label={p.label}
                               pillHeight={42}
                               pillWidth={pillSize.width}
                               active={theme === p.value}
-                              onClick={() => { setTheme(p.value); close?.(); }}
+                              onClick={() => {
+                                setTheme(p.value);
+                                close?.();
+                              }}
                               baseColor={p.accent}
                               pillColor={p.text}
                               hoveredTextColor={p.text}
@@ -145,81 +190,190 @@ function App() {
               />
             </div>
           </nav>
-          <button className="btn-encrypting" onClick={() => document.getElementById('encrypt-card')?.scrollIntoView({ behavior: 'smooth' })}>Start Encrypting</button>
+
+          <button
+            className="btn-encrypting"
+            onClick={() => document.getElementById('encrypt-card')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Start Encrypting
+          </button>
         </div>
       </div>
 
-      <main className="container" style={{flex: 1}}>
+      {/* Main Content */}
+      <main className="container" style={{ flex: 1 }}>
         {/* Hero Section */}
         <section className="hero">
           <div className="hero-grid">
             <div>
               <h1 className="headline">
                 CRYPTIC
-                <br/>
+                <br />
                 <span className="accent">ENCRYPTOR</span>
               </h1>
               <p className="lede">
-                
-                <EncryptText text="Step into the Shadows where Secrets Burn." sequential={true} encryptDirection="start" decryptDirection="start" speed={60} maxIterations={10} /> <br/>
-                <EncryptText text="With Encryption Born from the Abyss," sequential={true} encryptDirection="start" decryptDirection="start" speed={60} maxIterations={12} /> <br/>
-                <EncryptText text="your Data becomes Untouchable." sequential={true} encryptDirection="start" decryptDirection="start" speed={60} maxIterations={12} />  <br/>
-                <EncryptText text="Dare to Hide… If you Can." sequential={true} encryptDirection="start" decryptDirection="start" speed={60} maxIterations={12} /> </p>
+                <EncryptText
+                  text="Step into the Shadows where Secrets Burn."
+                  sequential
+                  revealDirection="start"
+                  speed={60}
+                  maxIterations={10}
+                />
+                <br />
+                <EncryptText
+                  text="With Encryption Born from the Abyss,"
+                  sequential
+                  revealDirection="start"
+                  speed={60}
+                  maxIterations={12}
+                />
+                <br />
+                <EncryptText
+                  text="your Data becomes Untouchable."
+                  sequential
+                  revealDirection="start"
+                  speed={60}
+                  maxIterations={12}
+                />
+                <br />
+                <EncryptText
+                  text="Dare to Hide… If you Can."
+                  sequential
+                  revealDirection="start"
+                  speed={60}
+                  maxIterations={12}
+                />
+              </p>
 
               <div className="cta">
-                <button className="btn btn-primary" onClick={() => document.getElementById('encrypt-card')?.scrollIntoView({ behavior: 'smooth' })}>Get Started →</button>
-                <a className="btn btn-secondary" href="#encrypt-card">Experience Generator</a>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setAuthView('signup')}
+                >
+                  Get Started →
+                </button>
+                <a className="btn btn-secondary" href="#encrypt-card">
+                  Experience Generator
+                </a>
               </div>
             </div>
+
             <div>
               <div className="mosaic">
-                <div className="mosaic-item"> <video src="/Encryption.svg" alt="preview"/> </div>
-                <div className="mosaic-item"> <video src="/lock.mp4" muted autoPlay loop playsInline/> </div>
-                <div className="mosaic-item"> <img src="/encryption-file.png" alt="file"/> </div>
-                <div className="mosaic-item"> <video src="/door.mp4" muted autoPlay loop playsInline/> </div>
-                <div className="mosaic-item"> <img src="/encryption-file.png" alt="file 2"/> </div>
-                <div className="mosaic-item"> <img src="/encryption.png" alt="preview 2"/> </div>
+                <div className="mosaic-item">
+                  <video src="/Encryption.svg" alt="preview" />
+                </div>
+                <div className="mosaic-item">
+                  <video src="/lock.mp4" muted autoPlay loop playsInline />
+                </div>
+                <div className="mosaic-item">
+                  <img src="/encryption-file.png" alt="file" />
+                </div>
+                <div className="mosaic-item">
+                  <video src="/door.mp4" muted autoPlay loop playsInline />
+                </div>
+                <div className="mosaic-item">
+                  <img src="/encryption-file.png" alt="file 2" />
+                </div>
+                <div className="mosaic-item">
+                  <img src="/encryption.png" alt="preview 2" />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Encryption Card */}
         <div className="grid">
           <div className="card" id="encrypt-card">
             <div className="row two">
               <div>
                 <label className="muted">Upload .txt file</label>
                 <div className="file-drop">
-                  <input type="file" accept=".txt" onChange={onFileChange} style={{display:'none'}} id="fileInput"/>
-                  <label htmlFor="fileInput" className="btn" style={{cursor:'pointer'}}>Choose File</label>
-                  <div style={{marginTop:12}} className="file-name">{fileName || 'No file selected'}</div>
+                  <input
+                    type="file"
+                    accept=".txt"
+                    onChange={onFileChange}
+                    style={{ display: 'none' }}
+                    id="fileInput"
+                  />
+                  <label htmlFor="fileInput" className="btn" style={{ cursor: 'pointer' }}>
+                    Choose File
+                  </label>
+                  <div style={{ marginTop: 12 }} className="file-name">
+                    {fileName || 'No file selected'}
+                  </div>
                 </div>
               </div>
               <div>
                 <label className="muted">Password</label>
-                <input className="input" placeholder="Enter password" type="password" value={password} onChange={e=>setPassword(e.target.value)} />
-                <div className="muted" style={{marginTop:8, fontSize:13}}>AES‑256 GCM with PBKDF2(SHA-256, 100k)</div>
+                <input
+                  className="input"
+                  placeholder="Enter password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <div className="muted" style={{ marginTop: 8, fontSize: 13 }}>
+                  AES‑256 GCM with PBKDF2(SHA-256, 100k)
+                </div>
               </div>
             </div>
 
-            <div className="actions" style={{marginTop:20}}>
-              <button className="btn" onClick={onEncrypt} disabled={busy}>Encrypt</button>
-              <button className="btn" onClick={downloadEncrypted} disabled={!resultB64}>Download .enc.txt</button>
+            <div className="actions" style={{ marginTop: 20 }}>
+              <button className="btn" onClick={onEncrypt} disabled={busy}>
+                {busy ? 'Encrypting...' : 'Encrypt'}
+              </button>
+              <button className="btn" onClick={downloadEncrypted} disabled={!resultB64}>
+                Download .enc.txt
+              </button>
             </div>
 
             {!!resultB64 && (
-              <div style={{marginTop:20}}>
+              <div style={{ marginTop: 20 }}>
                 <label className="muted">Preview (base64, truncated)</label>
-                <div className="input" style={{height:120, overflow:'auto', whiteSpace:'pre-wrap'}}>{resultB64.slice(0, 512)}{resultB64.length>512?'...':''}</div>
+                <div className="input" style={{ height: 120, overflow: 'auto', whiteSpace: 'pre-wrap' }}>
+                  {resultB64.slice(0, 512)}
+                  {resultB64.length > 512 ? '...' : ''}
+                </div>
               </div>
             )}
           </div>
         </div>
       </main>
 
+      {/* Footer */}
       <div className="footer">
-        Built with Web Crypto API • <a className="muted" href="https://github.com/askh-tamrakar/" target="_blank" rel="noreferrer">GitHub</a>
+        Built with Web Crypto API •{' '}
+        <a onClick={() => setAuthView('signup')} className="muted" href="#signup" rel="noreferrer">
+          Sign Up
+        </a>
+        {' '} •{' '}
+        <a
+          className="muted"
+          href="https://github.com/askh-tamrakar/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
       </div>
+
+      {/* Auth Modal */}
+      {authView && (
+        <AuthModal
+          type={authView}
+          open={!!authView}
+          onClose={() => setAuthView(null)}
+          onSuccess={() => {
+            if (authView === 'signup') {
+              handleSignupSuccess();
+            } else if (authView === 'login') {
+              handleLoginSuccess();
+            }
+          }}
+        />
+      )}
     </div>
   );
 }

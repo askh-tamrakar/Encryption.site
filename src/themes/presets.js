@@ -29,6 +29,7 @@ const themePresets = [
   { value: 'theme-vibrant',     label: 'Vibrant Warm',    accent: '#E17A47', text: '#061016' },
   { value: 'theme-blush',       label: 'Blush Tide',      accent: '#56BEA6', text: '#10222b' }
 
+  
 ];
 
 export default themePresets;
